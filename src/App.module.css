@@ -4,3 +4,113 @@
   padding: 2rem;
   text-align: center;
 }
+
+.board {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+
+  /* background-color: #58a2a9;
+  background-color: #4b6e71; */
+  /* background-color: #4bb6f3; */
+
+  /* border: 5px solid #eee; */
+  border-radius: 10px;
+  width: 50vh;
+
+  margin: 40vh auto 0;
+  transform: translateY(-40%);
+
+  padding: 40px 0 20px;
+  z-index: 50;
+}
+.board::after {
+  content: "";
+  position: absolute;
+  background-color: #4b6e71;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50vh;
+  border: 5px solid #eee;
+  border-radius: 10px;
+  opacity: 0.5;
+
+  -webkit-box-shadow: 0px 0px 15px 0px #333333;
+  box-shadow: 0px 0px 15px 0px #333333;
+  z-index: 0;
+}
+
+/* ToDo:  */
+/* evtl. aufteilen in enstprechende Components */
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 20px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  width: 400px;
+
+  background-color: #58a2a9;
+
+  -webkit-box-shadow: 0px 0px 15px 0px #333333;
+  box-shadow: 0px 0px 15px 0px #333333;
+
+  z-index: 50;
+}
+.progress-bar p {
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar span.progress {
+  display: flex;
+  align-items: center;
+  background-color: #febc5a;
+  /* background-color: #ff914b; */
+  width: 60%;
+  height: 10px;
+  z-index: 100;
+}
+
+.game-field {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  width: 400px;
+
+  background-color: #58a2a9;
+
+  -webkit-box-shadow: 0px 0px 15px 0px #333333;
+  box-shadow: 0px 0px 15px 0px #333333;
+  z-index: 50;
+}
+
+.result-page {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  width: 400px;
+
+  background-color: #58a2a9;
+
+  -webkit-box-shadow: 0px 0px 15px 0px #333333;
+  box-shadow: 0px 0px 15px 0px #333333;
+
+  z-index: 50;
+}
+
+.button-bar {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0 40px 0;
+
+  border-radius: 10px;
+  width: 400px;
+
+  z-index: 50;
+}
