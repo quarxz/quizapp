@@ -10,17 +10,19 @@ import { ResultScreen } from "./components/ResultScreen";
 function App() {
   return (
     <div className={styles.board}>
-      <h1>Quizz App</h1>
+      <div className={styles["headline-background"]}>
+        <h1>- Quiz App -</h1>
+      </div>
       <WelcomeScreen />
-      <ProgressBar />
-      <GameScreen />
-      <ResultScreen />
+      {/* <ProgressBar /> */}
+      {/* <GameScreen /> */}
+      {/* <ResultScreen /> */}
 
       <div className={styles["button-bar"]}>
         <button>START</button>
         {/* <button>WEITER</button>
-      <button>CANCEL</button>
-      <button>HOME</button> */}
+        <button>CANCEL</button>
+        <button>HOME</button> */}
       </div>
     </div>
   );

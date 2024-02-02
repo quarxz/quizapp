@@ -1,12 +1,28 @@
 .game-field {
-  padding: 20px;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  width: 400px;
+  padding: 30px 20px;
+  border: 6px solid #eee;
+  border-radius: 20px;
+  width: 70%;
+  min-height: 250px;
 
   background-color: #58a2a9;
 
-  -webkit-box-shadow: 0px 0px 15px 0px #333333;
-  box-shadow: 0px 0px 15px 0px #333333;
+  -webkit-box-shadow: 0px 0px 15px 0px #4b6e71;
+  box-shadow: 0px 0px 15px 0px #4b6e71;
+
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+
   z-index: 50;
+
+  text-align: center;
+}
+
+.answer-false {
+  color: rgb(255, 77, 0);
+  color: #ff914c;
+}
+
+.answer-true {
+  color: greenyellow;
 }
