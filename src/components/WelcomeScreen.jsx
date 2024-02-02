@@ -1,6 +1,6 @@
 import styles from "./WelcomeScreen.module.css";
 
-export function WelcomeScreen() {
+export function WelcomeScreen({ onStartQuiz }) {
   return (
     <>
       <div className={styles["welcome-screen"]}>
@@ -8,7 +8,7 @@ export function WelcomeScreen() {
         <p>Testen Sie Ihr CSS Wissen!</p>
       </div>
       <div className={styles["button-bar"]}>
-        <button>START</button>
+        <button onClick={onStartQuiz}>START</button>
       </div>
     </>
   );

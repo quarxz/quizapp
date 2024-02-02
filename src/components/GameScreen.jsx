@@ -1,7 +1,7 @@
 import styles from "./GameScreen.module.css";
 import { ProgressBar } from "./ProgressBar";
 
-export function GameScreen() {
+export function GameScreen({ onEndQuiz }) {
   return (
     <>
       <ProgressBar />
@@ -16,7 +16,7 @@ export function GameScreen() {
       </div>
 
       <div className={styles["button-bar"]}>
-        <button>WEITER</button>
+        <button onClick={onEndQuiz}>WEITER</button>
         <button>CANCEL</button>
       </div>
     </>

@@ -15,9 +15,25 @@ function App() {
       <div className={styles["headline-background"]}>
         <h1>- Quiz App -</h1>
       </div>
-      {screen === "welcome" ? <WelcomeScreen /> : "<></>"}
-      {screen === "gamescreen" ? <GameScreen /> : "<></>"}
-      {screen === "resultscreen" ? <ResultScreen /> : "<></>"}
+      {screen === "welcome" ? (
+        <WelcomeScreen
+          onStartQuiz={() => {
+            setScreen("game");
+          }}
+        />
+      ) : (
+        "<></>"
+      )}
+      {screen === "game" ? (
+        <GameScreen
+          onEndQuiz={() => {
+            setScreen("result");
+          }}
+        />
+      ) : (
+        "<></>"
+      )}
+      {screen === "result" ? <ResultScreen /> : "<></>"}
     </div>
   );
 }
