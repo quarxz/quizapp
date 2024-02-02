@@ -8,22 +8,34 @@ import { GameScreen } from "./components/GameScreen";
 import { ResultScreen } from "./components/ResultScreen";
 
 function App() {
+  const [screen, setScreen] = useState("welcome");
+
   return (
     <div className={styles.board}>
       <div className={styles["headline-background"]}>
         <h1>- Quiz App -</h1>
       </div>
-      <WelcomeScreen />
-      {/* <ProgressBar /> */}
-      {/* <GameScreen /> */}
-      {/* <ResultScreen /> */}
-
-      <div className={styles["button-bar"]}>
-        <button>START</button>
-        {/* <button>WEITER</button>
-        <button>CANCEL</button>
-        <button>HOME</button> */}
-      </div>
+      {screen === "welcome" ? (
+        <WelcomeScreen
+          onStartQuiz={() => {
+            setScreen("game");
+          }}
+        />
+      ) : undefined}
+      {screen === "game" ? (
+        <GameScreen
+          onEndQuiz={() => {
+            setScreen("welcome");
+          }}
+        />
+      ) : undefined}
+      {screen === "result" ? (
+        <ResultScreen
+          onRestartQuiz={() => {
+            setScreen("welcome");
+          }}
+        />
+      ) : undefined}
     </div>
   );
 }
