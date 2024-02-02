@@ -16,8 +16,8 @@ export function GameScreen({ onEndQuiz }) {
       </div>
 
       <div className={styles["button-bar"]}>
-        <button onClick={onEndQuiz}>WEITER</button>
-        <button>CANCEL</button>
+        <button>WEITER</button>
+        <button onClick={onEndQuiz}>CANCEL</button>
       </div>
     </>
   );

@@ -27,7 +27,7 @@ function App() {
       {screen === "game" ? (
         <GameScreen
           onEndQuiz={() => {
-            setScreen("result");
+            setScreen("welcome");
           }}
         />
       ) : (
