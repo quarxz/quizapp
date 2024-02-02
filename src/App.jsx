@@ -33,7 +33,15 @@ function App() {
       ) : (
         "<></>"
       )}
-      {screen === "result" ? <ResultScreen /> : "<></>"}
+      {screen === "result" ? (
+        <ResultScreen
+          onRestartQuiz={() => {
+            setScreen("welcome");
+          }}
+        />
+      ) : (
+        "<></>"
+      )}
     </div>
   );
 }
