@@ -59,12 +59,14 @@ h2 {
   letter-spacing: 0.1rem;
 
   text-shadow: 0px 0px 3px #4b6e71;
+  text-align: center;
 }
 
 p {
   font-size: 2rem;
-  line-height: 0;
+  line-height: 1;
   letter-spacing: 0.1rem;
+  text-align: center;
 }
 
 ul {

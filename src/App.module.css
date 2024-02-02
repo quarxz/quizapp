@@ -48,8 +48,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: space-between;
 
-  justify-content: space-around;
   gap: 15px;
 
   /* background-color: #58a2a9;
