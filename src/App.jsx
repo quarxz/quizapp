@@ -21,27 +21,21 @@ function App() {
             setScreen("game");
           }}
         />
-      ) : (
-        "<></>"
-      )}
+      ) : undefined}
       {screen === "game" ? (
         <GameScreen
           onEndQuiz={() => {
             setScreen("welcome");
           }}
         />
-      ) : (
-        "<></>"
-      )}
+      ) : undefined}
       {screen === "result" ? (
         <ResultScreen
           onRestartQuiz={() => {
             setScreen("welcome");
           }}
         />
-      ) : (
-        "<></>"
-      )}
+      ) : undefined}
     </div>
   );
 }

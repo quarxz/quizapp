@@ -19,12 +19,20 @@
 }
 
 .answer-false {
+  position: relative;
   color: rgb(255, 77, 0);
-  color: #ff914c;
+  color: #ff524c;
+  /* text-decoration: line-through; */
+  z-index: 10;
+  background-color: #4b6e71;
+  border-radius: 20px;
 }
 
 .answer-true {
   color: greenyellow;
+  background-color: #5b714b;
+
+  border-radius: 20px;
 }
 
 .button-bar {
