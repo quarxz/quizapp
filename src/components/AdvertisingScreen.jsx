@@ -1,18 +1,24 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import styles from "./AdvertisingScreen.module.css";
 
 export function AdvertisingScreen({ onSkipAdvertisement }) {
   const [isButtonDisabled, setButtonDisabled] = useState(true);
 
-  setTimeout(() => {
-    console.log("Console log");
-    setButtonDisabled(false);
-  }, 5000);
+  const [counter, setCounter] = useState(5);
+
+  useEffect(() => {
+    const timer =
+      counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+    counter === 0 && setButtonDisabled(false);
+    return () => clearInterval(timer);
+  }, [counter]);
 
   return (
     <>
       <div className={styles["advertising-screen"]}>
-        <h2>Advertising!</h2>
+        <h2>Taksoft</h2>
+        <p>Bootcamp</p>
         <iframe
           width="100%"
           height="315"
@@ -27,7 +33,7 @@ export function AdvertisingScreen({ onSkipAdvertisement }) {
           disabled={isButtonDisabled}
           onClick={onSkipAdvertisement}
         >
-          WEITER
+          {counter > 0 ? counter : "WEITER"}
         </button>
       </div>
     </>
