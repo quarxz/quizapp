@@ -2,7 +2,7 @@
   padding: 30px 20px;
   border: 6px solid #eee;
   border-radius: 20px;
-  width: 70%;
+  width: 90%;
   min-height: 250px;
 
   background-color: #58a2a9;
@@ -33,4 +33,91 @@
 
   /* border-top: 1px dashed #eee;
   border-bottom: 1px dashed #ff914b; */
+}
+
+/*    xxxxx   */
+.answer-listElement {
+  border: 1px solid transparent;
+}
+.answer-listElement:hover {
+  position: relative;
+  cursor: pointer;
+  border: 0px solid red;
+  background-color: #4b6e71;
+  border-radius: 20px;
+  border: 1px solid transparent;
+}
+/* .answer-listElement:hover::after {
+  content: "*";
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  color: #eee;
+}
+.answer-listElement:hover::before {
+  content: "*";
+  position: absolute;
+  right: 40px;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  color: #eee;
+} */
+
+.answer-false {
+  position: relative;
+  color: #ff524c;
+  z-index: 10;
+  background-color: #714b4b;
+  border-radius: 20px;
+
+  border: 1px solid #ff524c;
+}
+.answer-false:hover {
+  position: relative;
+  color: #ff524c;
+  z-index: 10;
+  background-color: #714b4b;
+  border: 1px solid #ff524c;
+}
+.answer-false::after {
+  content: "-";
+  position: absolute;
+  left: 5%;
+  color: #eee;
+}
+.answer-false::before {
+  content: "-";
+  position: absolute;
+  right: 5%;
+  color: #eee;
+}
+
+.answer-true {
+  position: relative;
+  color: greenyellow;
+  background-color: #5b714b;
+  border-radius: 20px;
+  border: 1px solid greenyellow;
+}
+.answer-true:hover {
+  position: relative;
+  color: greenyellow;
+  background-color: #5b714b;
+  border-radius: 20px;
+  border: 1px solid greenyellow;
+}
+.answer-true::after {
+  content: "*";
+  position: absolute;
+  left: 5%;
+  color: #eee;
+}
+.answer-true::before {
+  content: "*";
+  position: absolute;
+  right: 5%;
+  color: #eee;
 }
