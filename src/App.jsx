@@ -5,6 +5,7 @@ import styles from "./App.module.css";
 import { WelcomeScreen } from "./components/WelcomeScreen";
 import { GameScreen } from "./components/GameScreen";
 import { ResultScreen } from "./components/ResultScreen";
+import { AdvertisingScreen } from "./components/AdvertisingScreen";
 
 function App() {
   const [screen, setScreen] = useState("welcome");
@@ -18,10 +19,19 @@ function App() {
       {screen === "welcome" ? (
         <WelcomeScreen
           onStartQuiz={() => {
+            setScreen("advertisement");
+          }}
+        />
+      ) : undefined}
+
+      {screen === "advertisement" ? (
+        <AdvertisingScreen
+          onSkipAdvertisement={() => {
             setScreen("game");
           }}
         />
       ) : undefined}
+
       {screen === "game" ? (
         <GameScreen
           onShowResultScreen={() => {

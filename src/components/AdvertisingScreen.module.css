@@ -1,0 +1,48 @@
+.advertising-screen {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  width: 80%;
+
+  background-color: #58a2a9;
+
+  -webkit-box-shadow: 0px 0px 15px 0px #4b6e71;
+  box-shadow: 0px 0px 15px 0px #4b6e71;
+
+  z-index: 50;
+}
+
+.button-bar {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+
+  border-radius: 20px;
+  width: 400px;
+  width: 70%;
+
+  z-index: 50;
+
+  /* border-top: 1px dashed #eee;
+    border-bottom: 1px dashed #ff914b; */
+}
+
+.advertsBtnDisabled {
+  background: rgb(170, 170, 170);
+  background: linear-gradient(
+    180deg,
+    rgba(170, 170, 170, 1) 0%,
+    rgba(238, 238, 238, 1) 100%
+  );
+}
+.advertsBtnDisabled:hover {
+  cursor: default;
+  background: rgb(170, 170, 170);
+  background: linear-gradient(
+    180deg,
+    rgba(170, 170, 170, 1) 0%,
+    rgba(238, 238, 238, 1) 100%
+  );
+}
