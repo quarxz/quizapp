@@ -12,11 +12,14 @@ export function GameScreen({
   const [round, setRound] = useState(0);
   const [activeId, setActiveId] = useState(null);
 
+  const [isButtonDisabled, setButtonDisabled] = useState(true);
+
   function handleNextRound() {
     if (round < 4) {
       setRound((prevRound) => prevRound + 1);
     }
     setActiveId((prevActiveId) => (prevActiveId = null));
+    setButtonDisabled(true);
   }
 
   return (
@@ -35,6 +38,7 @@ export function GameScreen({
                     if (questions[round].correctIndex === index) {
                       onGetAmountCorrectAnswers();
                     }
+                    setButtonDisabled(false);
                   }
                 }}
                 className={`
@@ -62,7 +66,10 @@ export function GameScreen({
       </div>
 
       <div className={styles["button-bar"]}>
-        <button onClick={round < 4 ? handleNextRound : onShowResultScreen}>
+        <button
+          onClick={round < 4 ? handleNextRound : onShowResultScreen}
+          disabled={isButtonDisabled}
+        >
           {round < 4 ? "WEITER" : "ZUM ERGEBNIS"}
         </button>
         <button onClick={onEndQuiz}>CANCEL</button>

@@ -23,7 +23,6 @@ export function AdvertisingScreen({ onSkipAdvertisement }) {
       </div>
       <div className={styles["button-bar"]}>
         <button
-          id="btn"
           className={isButtonDisabled ? styles.advertsBtnDisabled : ""}
           disabled={isButtonDisabled}
           onClick={onSkipAdvertisement}
