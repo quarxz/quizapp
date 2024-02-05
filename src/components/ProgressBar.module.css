@@ -7,7 +7,7 @@
   border: 6px solid #eee;
   border-radius: 20px;
   width: 400px;
-  width: 80%;
+  width: 85%;
 
   background-color: #58a2a9;
 
@@ -25,6 +25,12 @@
   font-weight: 700;
 
   text-shadow: 0px 0px 3px #4b6e71;
+  padding-left: 20px;
+}
+
+.progress-bar-container {
+  position: relative;
+  width: 100%;
 }
 
 .progress-bar span.progress {
