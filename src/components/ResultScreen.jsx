@@ -9,7 +9,8 @@ export function ResultScreen({
     <>
       <div className={styles["result-page"]}>
         <p>
-          Du hast {amountCorrectAnswers} von 5 Fragen richtig beantwortet !
+          Du hast <b>{amountCorrectAnswers}</b> von <b>5</b> Fragen richtig
+          beantwortet !
         </p>
       </div>
       <div className={styles["button-bar"]}>

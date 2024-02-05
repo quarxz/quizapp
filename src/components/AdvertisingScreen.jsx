@@ -7,7 +7,7 @@ export function AdvertisingScreen({ onSkipAdvertisement }) {
   setTimeout(() => {
     console.log("Console log");
     setButtonDisabled(false);
-  }, 1000);
+  }, 5000);
 
   return (
     <>
