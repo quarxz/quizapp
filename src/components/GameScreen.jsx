@@ -2,17 +2,16 @@ import { useState } from "react";
 import styles from "./GameScreen.module.css";
 import { ProgressBar } from "./ProgressBar";
 import { questions } from "../assets/data/questions.js";
-import bell from "../assets/sounds/bell.wav";
-import nope from "../assets/sounds/nope.wav";
 
-export function GameScreen({ onEndQuiz, onShowResultScreen, onCorrectAnswer }) {
+export function GameScreen({
+  onEndQuiz,
+  onShowResultScreen,
+  onCorrectAnswer,
+  onPlaySound,
+}) {
   const [round, setRound] = useState(0);
   const [activeId, setActiveId] = useState(null);
-
   const [isButtonDisabled, setButtonDisabled] = useState(true);
-  const [mute, toggleMute] = useState(false);
-  const bellSound = new Audio(bell);
-  const nopeSound = new Audio(nope);
 
   function handleNextRound() {
     if (round < 4) {
@@ -37,13 +36,9 @@ export function GameScreen({ onEndQuiz, onShowResultScreen, onCorrectAnswer }) {
                     setActiveId((prevActiveId) => (prevActiveId = index));
                     if (questions[round].correctIndex === index) {
                       onCorrectAnswer();
-                      if (!mute) {
-                        bellSound.play();
-                      }
+                      onPlaySound(true);
                     } else {
-                      if (!mute) {
-                        nopeSound.play();
-                      }
+                      onPlaySound(false);
                     }
                     setButtonDisabled(false);
                   }
@@ -51,7 +46,8 @@ export function GameScreen({ onEndQuiz, onShowResultScreen, onCorrectAnswer }) {
                 className={`
                   ${styles["answer"]} 
                   ${
-                    questions[round].correctIndex === index && activeId !== null
+                    questions[round].correctIndex === index &&
+                    activeId !== null
                       ? styles["answer--true"]
                       : ""
                   }
