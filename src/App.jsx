@@ -7,16 +7,34 @@ import { GameScreen } from "./components/GameScreen";
 import { ResultScreen } from "./components/ResultScreen";
 import { AdvertisingScreen } from "./components/AdvertisingScreen";
 
+import { questions } from "./assets/data/questions.js";
+
 import bell from "./assets/sounds/bell.wav";
 import nope from "./assets/sounds/nope.wav";
 
 function App() {
+  const [data, setData] = useState(questions);
+
   const [screen, setScreen] = useState("welcome");
   const [amountCorrectAnswers, setAmountCorrectAnswers] = useState(0);
-
   const [mute, toggleMute] = useState(false);
   const bellSound = new Audio(bell);
   const nopeSound = new Audio(nope);
+
+  function setDataCorretAnswer(answer, id) {
+    setData(
+      data.map((question, index) => {
+        if (id === index) {
+          return {
+            ...question,
+            givenAnswer: answer,
+          };
+        } else {
+          return question;
+        }
+      })
+    );
+  }
 
   return (
     <div className={styles.board}>
@@ -47,7 +65,8 @@ function App() {
           onEndQuiz={() => {
             setScreen("welcome");
           }}
-          onCorrectAnswer={() => {
+          onCorrectAnswer={(answer, round) => {
+            setDataCorretAnswer(answer, round);
             setAmountCorrectAnswers(
               (prevAmountCorrectAnswers) => prevAmountCorrectAnswers + 1
             );
@@ -60,6 +79,7 @@ function App() {
               !mute && nopeSound.play();
             }
           }}
+          questions={data}
         />
       ) : undefined}
       {screen === "result" ? (
@@ -67,12 +87,15 @@ function App() {
           onGoToHome={() => {
             setScreen("welcome");
             setAmountCorrectAnswers(0);
+            setData(questions);
           }}
           onRestartQuiz={() => {
             setScreen("game");
             setAmountCorrectAnswers(0);
+            setData(questions);
           }}
           amountCorrectAnswers={amountCorrectAnswers}
+          questions={data}
         />
       ) : undefined}
     </div>

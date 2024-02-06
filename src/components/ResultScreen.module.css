@@ -32,3 +32,10 @@
   /* border-top: 1px dashed #eee;
   border-bottom: 1px dashed #ff914b; */
 }
+
+.result-page span {
+  font-size: 1.5rem !important;
+}
+.result-page ul li i {
+  font-size: 1.5rem !important;
+}
