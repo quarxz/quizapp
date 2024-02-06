@@ -1,13 +1,14 @@
 import { useState } from "react";
 import styles from "./GameScreen.module.css";
 import { ProgressBar } from "./ProgressBar";
-import { questions } from "../assets/data/questions.js";
+// import { questions } from "../assets/data/questions.js";
 
 export function GameScreen({
   onEndQuiz,
   onShowResultScreen,
   onCorrectAnswer,
   onPlaySound,
+  questions,
 }) {
   const [round, setRound] = useState(0);
   const [activeId, setActiveId] = useState(null);
@@ -35,7 +36,7 @@ export function GameScreen({
                   if (activeId === null) {
                     setActiveId((prevActiveId) => (prevActiveId = index));
                     if (questions[round].correctIndex === index) {
-                      onCorrectAnswer();
+                      onCorrectAnswer(index, round);
                       onPlaySound(true);
                     } else {
                       onPlaySound(false);
@@ -69,6 +70,7 @@ export function GameScreen({
 
       <div className={styles["button-bar"]}>
         <button
+          className={isButtonDisabled ? styles.advertsBtnDisabled : ""}
           onClick={round < 4 ? handleNextRound : onShowResultScreen}
           disabled={isButtonDisabled}
         >

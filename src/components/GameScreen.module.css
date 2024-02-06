@@ -120,3 +120,21 @@
   right: 5%;
   color: #eee;
 }
+
+.advertsBtnDisabled {
+  background: rgb(170, 170, 170);
+  background: linear-gradient(
+    180deg,
+    rgba(170, 170, 170, 1) 0%,
+    rgba(238, 238, 238, 1) 100%
+  );
+}
+.advertsBtnDisabled:hover {
+  cursor: default;
+  background: rgb(170, 170, 170);
+  background: linear-gradient(
+    180deg,
+    rgba(170, 170, 170, 1) 0%,
+    rgba(238, 238, 238, 1) 100%
+  );
+}
