@@ -7,7 +7,7 @@ import { questions } from "../assets/data/questions";
 export function GameScreen({
   onEndQuiz,
   onShowResultScreen,
-  onGetAmountCorrectAnswers,
+  onCorrectAnswer,
 }) {
   const [round, setRound] = useState(0);
   const [activeId, setActiveId] = useState(null);
@@ -36,24 +36,24 @@ export function GameScreen({
                   if (activeId === null) {
                     setActiveId((prevActiveId) => (prevActiveId = index));
                     if (questions[round].correctIndex === index) {
-                      onGetAmountCorrectAnswers();
+                      onCorrectAnswer();
                     }
                     setButtonDisabled(false);
                   }
                 }}
                 className={`
-                  ${styles["answer-listElement"]} 
+                  ${styles["answer"]} 
                   ${
                     questions[round].correctIndex === index &&
                     activeId !== null
-                      ? styles["answer-true"]
+                      ? styles["answer--true"]
                       : ""
                   }
                   ${
                     questions[round].correctIndex !== index &&
                     activeId !== null &&
                     activeId === index
-                      ? styles["answer-false"]
+                      ? styles["answer--false"]
                       : ""
                   }
                   `}

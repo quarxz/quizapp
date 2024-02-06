@@ -17,8 +17,8 @@ export function AdvertisingScreen({ onSkipAdvertisement }) {
   return (
     <>
       <div className={styles["advertising-screen"]}>
-        <h2>Taksoft</h2>
-        <p>Bootcamp</p>
+        <h2>Taksoft Bootcamp</h2>
+        <h3>Es ist toll!</h3>
         <iframe
           width="100%"
           height="315"
@@ -27,6 +27,7 @@ export function AdvertisingScreen({ onSkipAdvertisement }) {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         ></iframe>
       </div>
+
       <div className={styles["button-bar"]}>
         <button
           className={isButtonDisabled ? styles.advertsBtnDisabled : ""}
