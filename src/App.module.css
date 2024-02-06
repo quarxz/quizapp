@@ -42,6 +42,38 @@
   border-bottom: 1px solid #eee;
 }
 
+.btn-mute {
+  position: absolute;
+  border: 3px solid #eee;
+  border-radius: 20px;
+
+  padding: 10px 15px 10px 12px;
+  right: -5px;
+  bottom: 0px;
+  line-height: 0;
+  background: rgb(254, 188, 90);
+  background: linear-gradient(
+    180deg,
+    rgba(254, 188, 90, 1) 0%,
+    rgba(255, 145, 75, 1) 100%
+  );
+
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.btn-mute img {
+  width: 15px;
+}
+.btn-mute:hover {
+  cursor: pointer;
+  background: rgb(255, 145, 75);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 145, 75, 1) 0%,
+    rgba(254, 188, 90, 1) 100%
+  );
+}
+
 .board {
   position: relative;
   display: flex;

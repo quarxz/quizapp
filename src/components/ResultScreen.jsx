@@ -19,7 +19,10 @@ export function ResultScreen({
             if (question.givenAnswer === question.correctIndex) {
               return (
                 <li key={index}>
-                  <i>{question.question + ": "}</i>
+                  <i>
+                    {question.id + ") "}
+                    {question.question + ": "}
+                  </i>
                   {question.answers[question.correctIndex]}
                 </li>
               );
@@ -32,7 +35,10 @@ export function ResultScreen({
             if (question.givenAnswer === null) {
               return (
                 <li key={index + 1}>
-                  <i>{question.question}</i>
+                  <i>
+                    {question.id + ") "}
+                    {question.question}
+                  </i>
                 </li>
               );
             }

@@ -12,6 +12,9 @@ import { questions } from "./assets/data/questions.js";
 import bell from "./assets/sounds/bell.wav";
 import nope from "./assets/sounds/nope.wav";
 
+import soundIconOff from "./assets/images/volume-off-solid.svg";
+import soundIconLow from "./assets/images/volume-low-solid.svg";
+
 function App() {
   const [data, setData] = useState(questions);
 
@@ -40,6 +43,14 @@ function App() {
     <div className={styles.board}>
       <div className={styles["headline-background"]}>
         <h1>- Quiz App -</h1>
+        <span
+          className={styles["btn-mute"]}
+          onClick={() => {
+            toggleMute((prevMute) => !prevMute);
+          }}
+        >
+          <img src={!mute ? soundIconOff : soundIconLow} alt="Mute" />
+        </span>
       </div>
       {screen === "welcome" ? (
         <WelcomeScreen
