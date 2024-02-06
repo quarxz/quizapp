@@ -40,7 +40,7 @@ function App() {
           onEndQuiz={() => {
             setScreen("welcome");
           }}
-          onGetAmountCorrectAnswers={() => {
+          onCorrectAnswer={() => {
             setAmountCorrectAnswers(
               (prevAmountCorrectAnswers) => prevAmountCorrectAnswers + 1
             );
