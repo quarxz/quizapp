@@ -9,7 +9,7 @@ export function ResultScreen({
   return (
     <>
       <div className={styles["result-page"]}>
-        <div className={styles.childElement}>
+        <div className={styles["result-page--content"]}>
           <p>
             Du hast <b>{amountCorrectAnswers}</b> von <b>5</b> Fragen
             richtig beantwortet !
@@ -24,7 +24,9 @@ export function ResultScreen({
                       {question.id + ") "}
                       {question.question + ": "}
                     </i>
-                    {question.answers[question.correctIndex]}
+                    <strong>
+                      {question.answers[question.correctIndex]}
+                    </strong>
                   </li>
                 );
               }
