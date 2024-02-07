@@ -5,7 +5,7 @@ import styles from "./AdvertisingScreen.module.css";
 export function AdvertisingScreen({ onSkipAdvertisement }) {
   const [isButtonDisabled, setButtonDisabled] = useState(true);
 
-  const [countdown, setCountdown] = useState(1);
+  const [countdown, setCountdown] = useState(5);
 
   useEffect(() => {
     const timer =

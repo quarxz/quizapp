@@ -5,7 +5,8 @@ export function WelcomeScreen({ onStartQuiz }) {
     <>
       <div className={styles["welcome-screen"]}>
         <h2>Welcome!</h2>
-        <p>Testen Sie Ihr CSS Wissen!</p>
+        <p>Teste Dein CSS Wissen!</p>
+        <p>Du hast pro Frage nur eine Chance ...</p>
       </div>
       <div className={styles["button-bar"]}>
         <button onClick={onStartQuiz}>START</button>

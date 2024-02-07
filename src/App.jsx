@@ -13,6 +13,8 @@ import bell from "./assets/sounds/bell.wav";
 import nope from "./assets/sounds/nope.wav";
 import fanfare from "./assets/sounds/fanfare.wav";
 
+import theClickSound from "./assets/sounds/click.wav";
+
 import soundIconOff from "./assets/images/volume-off-solid.svg";
 import soundIconLow from "./assets/images/volume-low-solid.svg";
 
@@ -26,6 +28,8 @@ function App() {
   const bellSound = new Audio(bell);
   const nopeSound = new Audio(nope);
   const fanfareSound = new Audio(fanfare);
+
+  const clickSound = new Audio(theClickSound);
 
   function setDataCorretAnswer(answer, id) {
     setData(
@@ -59,6 +63,7 @@ function App() {
         <WelcomeScreen
           onStartQuiz={() => {
             setScreen("advertisement");
+            !mute && clickSound.play();
           }}
         />
       ) : undefined}
@@ -67,6 +72,7 @@ function App() {
         <AdvertisingScreen
           onSkipAdvertisement={() => {
             setScreen("game");
+            !mute && clickSound.play();
           }}
         />
       ) : undefined}
@@ -78,6 +84,7 @@ function App() {
             setScreen("result");
           }}
           onEndQuiz={() => {
+            !mute && clickSound.play();
             setScreen("welcome");
           }}
           onCorrectAnswer={(answer, round) => {
@@ -95,6 +102,8 @@ function App() {
             }
           }}
           questions={data}
+          clickSound={clickSound}
+          mute={mute}
         />
       ) : undefined}
       {screen === "result" ? (
@@ -103,11 +112,13 @@ function App() {
             setScreen("welcome");
             setAmountCorrectAnswers(0);
             setData(questions);
+            !mute && clickSound.play();
           }}
           onRestartQuiz={() => {
             setScreen("game");
             setAmountCorrectAnswers(0);
             setData(questions);
+            !mute && clickSound.play();
           }}
           amountCorrectAnswers={amountCorrectAnswers}
           questions={data}
