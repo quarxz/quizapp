@@ -21,9 +21,11 @@
 
   flex-grow: 1;
 }
-.childElement {
+.result-page--content {
   height: auto;
   overflow: auto;
+  text-align: center;
+  padding: 0 25px 0 10px;
 }
 .button-bar {
   display: flex;
@@ -42,9 +44,47 @@
   border-bottom: 1px dashed #ff914b; */
 }
 
-.result-page span {
-  font-size: 1.5rem !important;
+.result-page--content p {
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 20px;
 }
-.result-page ul li i {
-  font-size: 1.5rem !important;
+.result-page--content:not("p") {
+  font-size: 1.5rem;
+}
+.result-page--content span {
+  display: block;
+
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.result-page--content li {
+  display: block;
+
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+.result-page--content i {
+  display: block;
+
+  font-size: 1.8rem;
+  line-height: 0.8;
+  letter-spacing: 0.2rem;
+  margin-bottom: 10px;
+}
+.result-page--content strong {
+  display: block;
+
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 10px;
+  color: #eee;
+
+  border-radius: 20px;
 }
