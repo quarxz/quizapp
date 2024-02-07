@@ -24,27 +24,30 @@ export function GameScreen({
 
   return (
     <>
-      <ProgressBar round={round} amountQuestion={questions.length} />
-      <div className={styles["game-field"]}>
-        <h2>{questions[round].question}</h2>
-        <ul>
-          {questions[round].answers.map((answer, index) => {
-            return (
-              <li
-                key={index}
-                onClick={() => {
-                  if (activeId === null) {
-                    setActiveId((prevActiveId) => (prevActiveId = index));
-                    if (questions[round].correctIndex === index) {
-                      onCorrectAnswer(index, round);
-                      onPlaySound(true);
-                    } else {
-                      onPlaySound(false);
+      <div className={styles["game-fiel-container"]}>
+        <ProgressBar round={round} amountQuestion={questions.length} />
+        <div className={styles["game-field"]}>
+          <h2>{questions[round].question}</h2>
+          <ul>
+            {questions[round].answers.map((answer, index) => {
+              return (
+                <li
+                  key={index}
+                  onClick={() => {
+                    if (activeId === null) {
+                      setActiveId(
+                        (prevActiveId) => (prevActiveId = index)
+                      );
+                      if (questions[round].correctIndex === index) {
+                        onCorrectAnswer(index, round);
+                        onPlaySound(true);
+                      } else {
+                        onPlaySound(false);
+                      }
+                      setButtonDisabled(false);
                     }
-                    setButtonDisabled(false);
-                  }
-                }}
-                className={`
+                  }}
+                  className={`
                   ${styles["answer"]} 
                   ${
                     questions[round].correctIndex === index &&
@@ -60,12 +63,13 @@ export function GameScreen({
                       : ""
                   }
                   `}
-              >
-                {answer}
-              </li>
-            );
-          })}
-        </ul>
+                >
+                  {answer}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
 
       <div className={styles["button-bar"]}>

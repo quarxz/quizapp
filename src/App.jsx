@@ -11,6 +11,7 @@ import { questions } from "./assets/data/questions.js";
 
 import bell from "./assets/sounds/bell.wav";
 import nope from "./assets/sounds/nope.wav";
+import fanfare from "./assets/sounds/fanfare.wav";
 
 import soundIconOff from "./assets/images/volume-off-solid.svg";
 import soundIconLow from "./assets/images/volume-low-solid.svg";
@@ -20,9 +21,11 @@ function App() {
 
   const [screen, setScreen] = useState("welcome");
   const [amountCorrectAnswers, setAmountCorrectAnswers] = useState(0);
-  const [mute, toggleMute] = useState(false);
+
+  const [mute, setMute] = useState(false);
   const bellSound = new Audio(bell);
   const nopeSound = new Audio(nope);
+  const fanfareSound = new Audio(fanfare);
 
   function setDataCorretAnswer(answer, id) {
     setData(
@@ -46,7 +49,7 @@ function App() {
         <span
           className={styles["btn-mute"]}
           onClick={() => {
-            toggleMute((prevMute) => !prevMute);
+            setMute((prevMute) => !prevMute);
           }}
         >
           <img src={!mute ? soundIconOff : soundIconLow} alt="Mute" />
@@ -71,6 +74,7 @@ function App() {
       {screen === "game" ? (
         <GameScreen
           onShowResultScreen={() => {
+            !mute && fanfareSound.play();
             setScreen("result");
           }}
           onEndQuiz={() => {
