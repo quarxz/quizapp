@@ -14,6 +14,8 @@
   box-shadow: 0px 0px 15px 0px #4b6e71;
 
   z-index: 50;
+
+  flex-grow: 1;
 }
 
 .button-bar {

@@ -5,14 +5,15 @@ import styles from "./AdvertisingScreen.module.css";
 export function AdvertisingScreen({ onSkipAdvertisement }) {
   const [isButtonDisabled, setButtonDisabled] = useState(true);
 
-  const [counter, setCounter] = useState(1);
+  const [countdown, setCountdown] = useState(1);
 
   useEffect(() => {
     const timer =
-      counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
-    counter === 0 && setButtonDisabled(false);
+      countdown > 0 &&
+      setInterval(() => setCountdown(countdown - 1), 1000);
+    countdown === 0 && setButtonDisabled(false);
     return () => clearInterval(timer);
-  }, [counter]);
+  }, [countdown]);
 
   return (
     <>
@@ -34,7 +35,7 @@ export function AdvertisingScreen({ onSkipAdvertisement }) {
           disabled={isButtonDisabled}
           onClick={onSkipAdvertisement}
         >
-          {counter > 0 ? counter : "WEITER"}
+          {countdown > 0 ? countdown : "WEITER"}
         </button>
       </div>
     </>
