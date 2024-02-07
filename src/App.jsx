@@ -52,7 +52,7 @@ function App() {
             setMute((prevMute) => !prevMute);
           }}
         >
-          <img src={!mute ? soundIconOff : soundIconLow} alt="Mute" />
+          <img src={!mute ? soundIconLow : soundIconOff} alt="Mute" />
         </span>
       </div>
       {screen === "welcome" ? (

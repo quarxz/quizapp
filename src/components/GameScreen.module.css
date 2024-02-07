@@ -1,25 +1,15 @@
-.game-fiel-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-
-  width: 90%;
-  min-height: 250px;
-
-  padding-top: 20px;
-
-  z-index: 50;
-}
-
 .game-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   padding: 30px 20px;
   border: 6px solid #eee;
   border-radius: 20px;
   width: 90%;
   min-height: 250px;
 
-  margin-top: 50px;
+  margin-top: 20px;
 
   background-color: #58a2a9;
 
@@ -32,6 +22,8 @@
   z-index: 50;
 
   text-align: center;
+
+  flex-grow: 1;
 }
 
 .button-bar {
