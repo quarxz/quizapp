@@ -127,7 +127,7 @@ function App() {
           />
         ) : undefined}
       </div>
-      <Background />
+      <Background className={styles.stars} />
     </>
   );
 }
