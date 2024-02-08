@@ -17,6 +17,7 @@ import theClickSound from "./assets/sounds/click.wav";
 
 import soundIconOff from "./assets/images/volume-off-solid.svg";
 import soundIconLow from "./assets/images/volume-low-solid.svg";
+import { Background } from "./components/Background.jsx";
 
 function App() {
   const [data, setData] = useState(questions);
@@ -47,84 +48,87 @@ function App() {
   }
 
   return (
-    <div className={styles.board}>
-      <div className={styles["headline-background"]}>
-        <h1>- Quiz App -</h1>
-        <span
-          className={styles["btn-mute"]}
-          onClick={() => {
-            setMute((prevMute) => !prevMute);
-          }}
-        >
-          <img src={!mute ? soundIconLow : soundIconOff} alt="Mute" />
-        </span>
+    <>
+      <div className={styles.board}>
+        <div className={styles["headline-background"]}>
+          <h1>- Quiz App -</h1>
+          <span
+            className={styles["btn-mute"]}
+            onClick={() => {
+              setMute((prevMute) => !prevMute);
+            }}
+          >
+            <img src={!mute ? soundIconLow : soundIconOff} alt="Mute" />
+          </span>
+        </div>
+        {screen === "welcome" ? (
+          <WelcomeScreen
+            onStartQuiz={() => {
+              setScreen("advertisement");
+              !mute && clickSound.play();
+            }}
+          />
+        ) : undefined}
+
+        {screen === "advertisement" ? (
+          <AdvertisingScreen
+            onSkipAdvertisement={() => {
+              setScreen("game");
+              !mute && clickSound.play();
+            }}
+          />
+        ) : undefined}
+
+        {screen === "game" ? (
+          <GameScreen
+            onShowResultScreen={() => {
+              !mute && fanfareSound.play();
+              setScreen("result");
+            }}
+            onEndQuiz={() => {
+              !mute && clickSound.play();
+              setScreen("welcome");
+            }}
+            onCorrectAnswer={(answer, round) => {
+              setDataCorretAnswer(answer, round);
+              setAmountCorrectAnswers(
+                (prevAmountCorrectAnswers) => prevAmountCorrectAnswers + 1
+              );
+            }}
+            onPlaySound={(option) => {
+              if (option) {
+                !mute && bellSound.play();
+              }
+              if (!option) {
+                !mute && nopeSound.play();
+              }
+            }}
+            questions={data}
+            clickSound={clickSound}
+            mute={mute}
+          />
+        ) : undefined}
+        {screen === "result" ? (
+          <ResultScreen
+            onGoToHome={() => {
+              setScreen("welcome");
+              setAmountCorrectAnswers(0);
+              setData(questions);
+              !mute && clickSound.play();
+            }}
+            onRestartQuiz={() => {
+              setScreen("game");
+              setAmountCorrectAnswers(0);
+              setData(questions);
+              !mute && clickSound.play();
+            }}
+            amountCorrectAnswers={amountCorrectAnswers}
+            questions={data}
+          />
+        ) : undefined}
       </div>
-      {screen === "welcome" ? (
-        <WelcomeScreen
-          onStartQuiz={() => {
-            setScreen("advertisement");
-            !mute && clickSound.play();
-          }}
-        />
-      ) : undefined}
-
-      {screen === "advertisement" ? (
-        <AdvertisingScreen
-          onSkipAdvertisement={() => {
-            setScreen("game");
-            !mute && clickSound.play();
-          }}
-        />
-      ) : undefined}
-
-      {screen === "game" ? (
-        <GameScreen
-          onShowResultScreen={() => {
-            !mute && fanfareSound.play();
-            setScreen("result");
-          }}
-          onEndQuiz={() => {
-            !mute && clickSound.play();
-            setScreen("welcome");
-          }}
-          onCorrectAnswer={(answer, round) => {
-            setDataCorretAnswer(answer, round);
-            setAmountCorrectAnswers(
-              (prevAmountCorrectAnswers) => prevAmountCorrectAnswers + 1
-            );
-          }}
-          onPlaySound={(option) => {
-            if (option) {
-              !mute && bellSound.play();
-            }
-            if (!option) {
-              !mute && nopeSound.play();
-            }
-          }}
-          questions={data}
-          clickSound={clickSound}
-          mute={mute}
-        />
-      ) : undefined}
-      {screen === "result" ? (
-        <ResultScreen
-          onGoToHome={() => {
-            setScreen("welcome");
-            setAmountCorrectAnswers(0);
-            setData(questions);
-            !mute && clickSound.play();
-          }}
-          onRestartQuiz={() => {
-            setScreen("game");
-            setAmountCorrectAnswers(0);
-            setData(questions);
-            !mute && clickSound.play();
-          }}
-          amountCorrectAnswers={amountCorrectAnswers}
-          questions={data}
-        />
-      ) : undefined}
-    </div>
+      <Background />
+    </>
   );
 }
 

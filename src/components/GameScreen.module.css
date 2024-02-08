@@ -81,6 +81,19 @@
   border-radius: 20px;
 
   border: 1px solid #ff524c;
+  animation: animFalse 0.2s ease 0s 3 normal forwards;
+}
+@keyframes animFalse {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
 .answer--false:hover {
   position: relative;
@@ -108,6 +121,19 @@
   background-color: #5b714b;
   border-radius: 20px;
   border: 1px solid greenyellow;
+  animation: animTrue 0.2s ease 0s 1 normal forwards;
+}
+@keyframes animTrue {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
 .answer--true:hover {
   position: relative;
