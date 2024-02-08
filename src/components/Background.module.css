@@ -1,0 +1,102 @@
+.star-container-one {
+  position: absolute;
+  top: 30%;
+  margin: 0 auto;
+  left: 15%;
+  opacity: 0.1;
+  animation: starsAnimation 2s ease 0s 1 normal forwards;
+}
+
+.star-container-two {
+  position: absolute;
+  top: 55%;
+  margin: 0 auto;
+  right: 20%;
+  opacity: 0.2;
+  animation: starsAnimation 2s ease 0s 1 normal forwards;
+}
+.star-container-three {
+  position: absolute;
+  top: 10%;
+  margin: 0 auto;
+  right: 12%;
+  opacity: 0.2;
+  animation: starsAnimation 2s ease 0s 1 normal forwards;
+}
+
+@keyframes starsAnimation {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.star-container-two .five-pointed-star {
+  font-size: 10em;
+}
+.star-container-three .five-pointed-star {
+  font-size: 11em;
+}
+
+.five-pointed-star {
+  --star-color: orange;
+  margin: 1em auto;
+  font-size: 12em;
+  position: relative;
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-right: 1em solid transparent;
+  border-bottom: 0.7em solid var(--star-color);
+  border-left: 1em solid transparent;
+  transform: rotate(35deg);
+}
+.five-pointed-star:before {
+  border-bottom: 0.8em solid var(--star-color);
+  border-left: 0.3em solid transparent;
+  border-right: 0.3em solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -0.45em;
+  left: -0.65em;
+  display: block;
+  content: "";
+  transform: rotate(-35deg);
+}
+.five-pointed-star:after {
+  position: absolute;
+  display: block;
+  top: 0.03em;
+  left: -1.05em;
+  width: 0;
+  height: 0;
+  border-right: 1em solid transparent;
+  border-bottom: 0.7em solid var(--star-color);
+  border-left: 1em solid transparent;
+  transform: rotate(-70deg);
+  content: "";
+}
