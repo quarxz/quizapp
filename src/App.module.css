@@ -125,9 +125,6 @@
   );
 }
 
-/* ToDo:  */
-/* evtl. aufteilen in enstprechende Components */
-
 .button-bar {
   display: flex;
   justify-content: center;
